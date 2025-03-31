@@ -1,0 +1,12 @@
+{
+  "model_path": "BAAI/bge-m3",
+  "embedding_dim": 1024,
+  "chunk_size": 512,
+  "chunk_overlap": 50,
+  "index_dir": "./legal_document_index",
+  "index_type": "flat",
+  "id_field": "id",
+  "text_field": "text",
+  "batch_size": 8,
+  "top_k": 5
+}
