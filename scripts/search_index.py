@@ -127,7 +127,7 @@ def main():
     parser.add_argument(
         "--index_dir",
         type=str,
-        default="./index_v3",
+        default="./index_v4",
         help="Directory where the index is stored (default: ./index)"
     )
 
@@ -148,7 +148,7 @@ def main():
     parser.add_argument(
         "--top_k",
         type=int,
-        default=5,
+        default=30,
         help="Number of results to return (default: 5)"
     )
 
@@ -182,7 +182,7 @@ def main():
         if referenced_model:
             args.model_path = referenced_model
         else:
-            args.model_path = "wilkertyl/bge-m3-portuguese-legal-v3"
+            args.model_path = "wilkertyl/bge-m3-portuguese-legal-v4"
 
     print("data loaded")
 
