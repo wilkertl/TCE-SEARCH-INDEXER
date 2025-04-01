@@ -6,9 +6,7 @@ import os
 import argparse
 import time
 import sys
-import requests
 from pathlib import Path
-from urllib.parse import urlparse
 
 # Add parent directory to path so we can import the legal_indexer package
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -25,50 +23,15 @@ from legal_indexer.utils import (
 )
 
 
-def download_dataset(url, output_path):
-    """
-    Download a dataset from a URL and save it to the specified path
-    """
-    try:
-        response = requests.get(url, stream=True)
-        response.raise_for_status()
-
-        # Get filename from URL if not provided
-        if os.path.isdir(output_path):
-            filename = os.path.basename(urlparse(url).path)
-            if not filename:
-                # Default to CSV since bills dataset is in CSV format
-                filename = "downloaded_dataset.csv"
-            output_path = os.path.join(output_path, filename)
-
-        # Write content to file
-        with open(output_path, 'wb') as f:
-            for chunk in response.iter_content(chunk_size=8192):
-                f.write(chunk)
-
-        print(f"Downloaded bills dataset (CSV) to {output_path}")
-        return output_path
-    except Exception as e:
-        print(f"Error downloading dataset: {e}")
-        return None
-
-
 def main():
     parser = argparse.ArgumentParser(description="Build a document index")
 
-    # Document source parameters (optional with defaults)
-    document_group = parser.add_mutually_exclusive_group(required=False)
-    document_group.add_argument(
+    # Document source parameters (use local file by default)
+    parser.add_argument(
         "--documents_path",
         type=str,
-        default="./data/documents",
-        help="Path to document file or directory (default: ./data/documents)"
-    )
-    document_group.add_argument(
-        "--bills_dataset_url",
-        type=str,
-        default="./bills_dataset.csv",
-        help="URL to download the bills dataset CSV"
+        default="./bills_dataset.csv",  # Point directly to the local CSV file
+        help="Path to document file or directory (default: ./bills_dataset.csv)"
     )
 
     parser.add_argument(
@@ -128,8 +91,8 @@ def main():
     parser.add_argument(
         "--id_field",
         type=str,
-        default="bill_id",
-        help="Field name for document ID in JSON/CSV files (default: bill_id)"
+        default="code",
+        help="Field name for document ID in JSON/CSV files (default: code)"
     )
 
     parser.add_argument(
@@ -167,20 +130,11 @@ def main():
     # Create index directory if it doesn't exist
     create_directory_if_not_exists(args.index_dir)
 
-    # Determine which document source to use
-    # By default, use the bills dataset URL if documents_path was not explicitly provided
-    use_default_url = not any(arg in sys.argv for arg in ['--documents_path', '-documents_path'])
-
-    # Handle document path or dataset download
-    documents_path = args.documents_path
-    if use_default_url or args.bills_dataset_url != "./bills_dataset.csv":
-        print(f"Downloading bills dataset CSV from {args.bills_dataset_url}")
-        download_path = os.path.join(args.index_dir, "downloaded_dataset")
-        create_directory_if_not_exists(download_path)
-        documents_path = download_dataset(args.bills_dataset_url, download_path)
-        if not documents_path:
-            print("Failed to download dataset. Exiting.")
-            return
+    # Check if the local file exists
+    if not os.path.exists(args.documents_path):
+        print(f"Error: File {args.documents_path} not found!")
+        print("Make sure bills_dataset.csv is in the same directory as this script.")
+        return
 
     # Load model and tokenizer
     model, tokenizer = load_model_and_tokenizer(args.model_path, device=args.device)
@@ -237,9 +191,10 @@ def main():
         indexer = LegalDocumentIndexer(chunker=chunker, embedder=embedder, index=index)
 
     # Load documents
+    print(f"Using local file: {args.documents_path}")
     start_time = time.time()
     documents = load_documents(
-        documents_path,
+        args.documents_path,
         id_field=args.id_field,
         text_field=args.text_field
     )
@@ -247,6 +202,7 @@ def main():
 
     if not documents:
         print("No documents loaded. Check file format and field names.")
+        print(f"Make sure your CSV file has '{args.id_field}' (document ID) and '{args.text_field}' (text content) columns.")
         return
 
     # Process documents
