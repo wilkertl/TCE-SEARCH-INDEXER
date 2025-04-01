@@ -1,0 +1,10 @@
+data loaded
+Loading model wilkertyl/bge-m3-portuguese-legal-v1 on cuda
+data indexed
+query=Programa Nacional de Alimentação Escolar
+* metadata=[{'code': 2307087, 'name': 'INC 2307087'}], score=0.6442735195159912
+* metadata=[{'code': 2269714, 'name': 'INC 2269714'}], score=0.47428709268569946
+* metadata=[{'code': 2287442, 'name': 'INC 2287442'}], score=0.45824912190437317
+* metadata=[{'code': 2287452, 'name': 'INC 2287452'}], score=0.4531420171260834
+* metadata=[{'code': 2270146, 'name': 'INC 2270146'}], score=0.452180415391922
+Elapsed time: 0.11387205123901367 seconds
