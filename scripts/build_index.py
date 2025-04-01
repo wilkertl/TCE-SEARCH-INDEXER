@@ -173,7 +173,7 @@ def main():
 
     # Handle document path or dataset download
     documents_path = args.documents_path
-    if use_default_url or args.bills_dataset_url != "https://drive.google.com/uc?id=1yuRCNKLphpk6FPhAfBD4_yygnOPFilHj":
+    if use_default_url or args.bills_dataset_url != "./bills_dataset.csv":
         print(f"Downloading bills dataset CSV from {args.bills_dataset_url}")
         download_path = os.path.join(args.index_dir, "downloaded_dataset")
         create_directory_if_not_exists(download_path)
