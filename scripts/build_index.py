@@ -67,7 +67,7 @@ def main():
     document_group.add_argument(
         "--bills_dataset_url",
         type=str,
-        default="https://drive.google.com/uc?id=1yuRCNKLphpk6FPhAfBD4_yygnOPFilHj",
+        default="./bills_dataset.csv",
         help="URL to download the bills dataset CSV"
     )
 
