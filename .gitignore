@@ -4,4 +4,3 @@ fresh-venv
 __pycache__
 venv
 bills_dataset.csv
-index/

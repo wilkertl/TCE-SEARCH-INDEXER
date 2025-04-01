@@ -37,7 +37,7 @@ def main():
     parser.add_argument(
         "--index_dir",
         type=str,
-        default="./index",
+        default="./index_v2",
         help="Directory to save the index (default: ./index)"
     )
 
@@ -45,7 +45,7 @@ def main():
     parser.add_argument(
         "--model_path",
         type=str,
-        default="wilkertyl/bge-m3-portuguese-legal-v1",
+        default="wilkertyl/bge-m3-portuguese-legal-v2",
         help="Path to the model"
     )
 
