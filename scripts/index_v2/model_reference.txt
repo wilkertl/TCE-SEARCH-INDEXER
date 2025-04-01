@@ -1,0 +1,3 @@
+model_path: wilkertyl/bge-m3-portuguese-legal-v2
+embedding_dim: 1024
+max_length: 512
