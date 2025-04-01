@@ -120,7 +120,7 @@ def extract_metadata(doc_id, doc_metadata=None):
 
 def main():
     # Define your default query here - replace with your actual query
-    DEFAULT_QUERY = "proibição de nomeação em cargos públicos de pessoas condenadas pelo crime de estupro e pela Lei Maria da Penha."
+    DEFAULT_QUERY = "Elaborar PLP alterando as atribuições do Conselho Monetário Nacional na Lei nº 4595/64."
 
     parser = argparse.ArgumentParser(description="Search a document index")
 
