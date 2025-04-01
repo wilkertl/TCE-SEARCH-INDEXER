@@ -1,5 +1,5 @@
 """
-Document chunking functionality for legal documents
+Document chunking functionality for legal documents - Optimized version
 """
 import re
 from typing import List, Dict, Any, Optional
@@ -33,7 +33,7 @@ class DocumentChunker:
             self.legal_patterns = [
                 r"ARTIGO \d+", r"Art\. \d+", r"CAPÍTULO \d+", r"TÍTULO \d+",
                 r"SEÇÃO \d+", r"PARÁGRAFO \d+", r"§ \d+º", r"EMENTA", r"DISPOSITIVO",
-                r"CONCLUSÃO"
+                r"CONCLUSÃO", r"INDICAÇÃO Nº", r"REQUERIMENTO Nº"
             ]
         else:
             self.legal_patterns = legal_patterns
@@ -51,34 +51,37 @@ class DocumentChunker:
         Returns:
             List of dictionaries containing chunk information
         """
+        # If document is empty, return empty list
+        if not document or not document.strip():
+            return []
+
         # Tokenize the entire document
         tokens = self.tokenizer.encode(document, add_special_tokens=False)
+
+        # If no tokens, return empty list
+        if not tokens:
+            return []
 
         chunks = []
         chunk_id = 0
 
-        # Find all section boundaries
-        section_boundaries = self._find_section_boundaries(document, tokens)
+        # More efficient section boundary detection
+        section_boundaries = self._find_section_boundaries_efficient(document)
 
         # Add chunking based on both token count and section boundaries
         start_idx = 0
 
         while start_idx < len(tokens):
-            # Try to find a section boundary within an acceptable range
-            end_idx = start_idx + self.max_chunk_size
+            # Define the end index based on max chunk size
+            end_idx = min(start_idx + self.max_chunk_size, len(tokens))
 
-            # Check if there's a section boundary we can use
-            section_end = None
+            # Check if there's a better section boundary to use for this chunk
             for boundary in section_boundaries:
-                if start_idx < boundary <= start_idx + self.max_chunk_size:
-                    section_end = boundary
-
-            # If we found a good section boundary, use it
-            if section_end:
-                end_idx = section_end
-
-            # Make sure we don't exceed the document length
-            end_idx = min(end_idx, len(tokens))
+                # Only consider boundaries within our chunk that aren't too close to start
+                if (start_idx < boundary < end_idx and
+                    boundary - start_idx > self.max_chunk_size // 4):  # Ensure meaningful chunks
+                    end_idx = boundary
+                    break
 
             # Decode this chunk back to text
             chunk_tokens = tokens[start_idx:end_idx]
@@ -99,8 +102,8 @@ class DocumentChunker:
             # Move to next chunk with overlap
             start_idx = end_idx - self.chunk_overlap
 
-            # Make sure we're making progress
-            if start_idx >= len(tokens):
+            # Make sure we're making forward progress
+            if start_idx >= len(tokens) or end_idx == len(tokens):
                 break
 
             if start_idx < 0:
@@ -108,27 +111,41 @@ class DocumentChunker:
 
         return chunks
 
-    def _find_section_boundaries(self, document: str, tokens: List[int]) -> List[int]:
+    def _find_section_boundaries_efficient(self, document: str) -> List[int]:
         """
-        Find section boundaries in the document
+        Find section boundaries in the document more efficiently by working with character positions
+        and converting to token positions only at the end.
 
         Args:
             document: Text of the document
-            tokens: List of token IDs
 
         Returns:
             List of token positions for section boundaries
         """
-        section_boundaries = []
+        # Find character positions of section boundaries
+        char_boundaries = []
+
+        # Split document by lines
         lines = document.split("\n")
-        current_pos = 0
+        char_position = 0
 
         for line in lines:
+            # Check if this line matches any section pattern
             if self.section_regex.search(line):
-                # Find the token position corresponding to this line
-                line_tokens = self.tokenizer.encode(document[:current_pos + len(line)],
-                                                    add_special_tokens=False)
-                section_boundaries.append(len(line_tokens))
-            current_pos += len(line) + 1  # +1 for the newline
+                char_boundaries.append(char_position)
 
-        return section_boundaries
+            # Move character position forward (include newline)
+            char_position += len(line) + 1
+
+        # Now convert character positions to token positions in a single pass
+        token_boundaries = []
+        if char_boundaries:
+            # Create substrings up to each boundary and tokenize once
+            for boundary in char_boundaries:
+                boundary_tokens = self.tokenizer.encode(
+                    document[:boundary],
+                    add_special_tokens=False
+                )
+                token_boundaries.append(len(boundary_tokens))
+
+        return token_boundaries
