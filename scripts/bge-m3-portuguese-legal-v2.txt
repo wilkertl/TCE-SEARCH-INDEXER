@@ -1,0 +1,11 @@
+data loaded
+Loaded metadata for 105669 documents from CSV
+Loading model wilkertyl/bge-m3-portuguese-legal-v2 on cuda
+data indexed
+query=proibição de nomeação em cargos públicos de pessoas condenadas pelo crime de estupro e pela Lei Maria da Penha.
+* metadata=[{'code': 2283947, 'name': 'INC 610/2021'}], score=0.6046502590179443
+* metadata=[{'code': 2278257, 'name': 'INC 503/2021'}], score=0.5583542585372925
+* metadata=[{'code': 2263566, 'name': 'INC 1059/2020'}], score=0.5567602515220642
+* metadata=[{'code': 2251049, 'name': 'INC 500/2020'}], score=0.5338026881217957
+* metadata=[{'code': 2273883, 'name': 'INC 363/2021'}], score=0.5153357982635498
+Elapsed time: 0.12633609771728516 seconds
