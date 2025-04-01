@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Script to search an existing index with formatted output
+Script to search an existing index with formatted output including document name
 """
 import argparse
 import time
@@ -58,23 +58,69 @@ def max_pooling_results(results, top_k=5):
     return max_results[:top_k]
 
 
-def extract_metadata(doc_id):
+def load_document_metadata(index_dir):
     """
-    Extract code and name from document ID
+    Load document metadata from the index to get the actual document names
+    """
+    metadata_path = os.path.join(index_dir, "metadata.json")
+    doc_metadata = {}
+
+    if os.path.exists(metadata_path):
+        try:
+            with open(metadata_path, 'r') as f:
+                metadata = json.load(f)
+
+            # Extract unique document IDs and their names/titles if available
+            for item in metadata:
+                doc_id = item.get('doc_id', '')
+                # Extract just the document ID part if it's a chunk ID
+                if '-' in doc_id:
+                    doc_id = doc_id.split('-')[0]
+
+                # Check if we have additional metadata like 'name' field
+                if doc_id and 'metadata' in item and doc_id not in doc_metadata:
+                    # This assumes the metadata structure contains document info
+                    doc_metadata[doc_id] = item.get('metadata', {})
+
+                # Or check if there's a 'name' field directly in the item
+                elif doc_id and 'name' in item and doc_id not in doc_metadata:
+                    doc_metadata[doc_id] = {'name': item['name']}
+        except Exception as e:
+            print(f"Warning: Could not load document metadata: {e}")
+
+    return doc_metadata
+
+
+def extract_metadata(doc_id, doc_metadata=None, result=None):
+    """
+    Extract code and name from document ID and available metadata
     Format assumption: INC XXXX/YYYY
     """
-    # Try to extract a document name if it looks like a legal document code
     try:
+        clean_doc_id = doc_id
         if '-' in doc_id:
             # If it's a chunk ID, get just the document part
-            doc_id = doc_id.split('-')[0]
+            clean_doc_id = doc_id.split('-')[0]
 
         # Default values
-        code = int(doc_id)
-        name = f"INC {doc_id}"
+        code = int(clean_doc_id)
+        name = f"INC {clean_doc_id}"
 
-        # You can enhance this with more sophisticated metadata extraction
-        # if your document IDs have a different format
+        # Try to get the actual name from document metadata if available
+        if doc_metadata and clean_doc_id in doc_metadata:
+            metadata_entry = doc_metadata[clean_doc_id]
+            if isinstance(metadata_entry, dict) and 'name' in metadata_entry:
+                name = metadata_entry['name']
+
+        # Try to extract name from the result text as fallback
+        elif result and 'text' in result:
+            # Look for common document name patterns in the text
+            text = result['text']
+            # Look for INC or REQ or PL patterns followed by numbers
+            import re
+            name_match = re.search(r'(INC|REQ|PL|PEC)\s+\d+\/\d{4}', text)
+            if name_match:
+                name = name_match.group(0)
 
         return {'code': code, 'name': name}
     except:
@@ -143,6 +189,9 @@ def main():
 
     print("data loaded")
 
+    # Load document metadata from index
+    doc_metadata = load_document_metadata(args.index_dir)
+
     # Load model and tokenizer (silently)
     model, tokenizer = load_model_and_tokenizer(args.model_path, device=args.device)
 
@@ -176,7 +225,7 @@ def main():
     # Display results in the requested format
     for result in results:
         doc_id = result['doc_id']
-        metadata = extract_metadata(doc_id)
+        metadata = extract_metadata(doc_id, doc_metadata, result)
         score = result['score']
         print(f"* metadata=[{{'code': {metadata['code']}, 'name': '{metadata['name']}'}}], score={score}")
 
