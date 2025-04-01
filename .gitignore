@@ -2,3 +2,4 @@
 .gitignore
 fresh-venv
 __pycache__
+venv
