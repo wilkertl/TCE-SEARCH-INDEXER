@@ -14,3 +14,18 @@ query=proibição de nomeação em cargos públicos de pessoas condenadas pelo c
 * metadata=[{'code': 2242535, 'name': 'INC 292/2020'}], score=0.5105850100517273
 * metadata=[{'code': 2262872, 'name': 'INC 1020/2020'}], score=0.5068697929382324
 Elapsed time: 0.2555551528930664 seconds
+data loaded
+Loaded metadata for 105669 documents from CSV
+Loading model wilkertyl/bge-m3-portuguese-legal-v4 on cuda
+data indexed
+query=Elaborar PLP alterando as atribuições do Conselho Monetário Nacional na Lei nº 4595/64.
+* metadata=[{'code': 2248257, 'name': 'INC 429/2020'}], score=0.6117227077484131
+* metadata=[{'code': 2248004, 'name': 'INC 414/2020'}], score=0.5896298885345459
+* metadata=[{'code': 2274275, 'name': 'INC 375/2021'}], score=0.5869140625
+* metadata=[{'code': 2262822, 'name': 'INC 1014/2020'}], score=0.5727367401123047
+* metadata=[{'code': 2285192, 'name': 'INC 661/2021'}], score=0.5696240663528442
+* metadata=[{'code': 2242484, 'name': 'INC 284/2020'}], score=0.5572884678840637
+* metadata=[{'code': 2265987, 'name': 'INC 1173/2020'}], score=0.5561450719833374
+* metadata=[{'code': 2287336, 'name': 'INC 731/2021'}], score=0.5431908965110779
+* metadata=[{'code': 2306960, 'name': 'PDL 990/2021'}], score=0.5416129231452942
+Elapsed time: 0.13059616088867188 seconds
