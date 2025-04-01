@@ -72,7 +72,7 @@ def main():
 
     # Search parameters
     # Define your default query here - replace with your actual query
-    DEFAULT_QUERY = "Programa nacional de alimentacao escolar "
+    DEFAULT_QUERY = "Programa nacional de alimentacao escolar"
 
     parser.add_argument(
         "--query",
@@ -205,7 +205,43 @@ def main():
 
         return results, search_time, result_type
 
-        # By default, run in non-interactive mode (remove the interactive check)
+    # Execute the search based on mode
+    if args.interactive:
+        # Interactive search mode
+        print("\nEntering interactive search mode. Type 'exit' to quit.")
+        print("Type 'toggle_pooling' to toggle max pooling on/off.")
+        print(f"Max pooling is currently {'ON' if args.max_pooling else 'OFF'}\n")
+
+        use_max_pooling = args.max_pooling
+
+        while True:
+            query = input("Enter search query: ")
+
+            if query.lower() in ["exit", "quit", "q"]:
+                break
+
+            if query.lower() == "toggle_pooling":
+                use_max_pooling = not use_max_pooling
+                print(f"Max pooling is now {'ON' if use_max_pooling else 'OFF'}")
+                continue
+
+            if not query.strip():
+                continue
+
+            results, search_time, result_type = execute_search(
+                query, args.top_k, args.chunk_results, use_max_pooling
+            )
+
+            print(f"\nFound {len(results)} {result_type} results in {search_time:.2f} seconds\n")
+
+            for i, result in enumerate(results):
+                print(f"Result {i + 1} (Score: {result['score']:.4f}):")
+                print(f"Document: {result['doc_id']}, Chunk: {result['chunk_id']}")
+                print(result['text'])
+                print("-" * 80)
+
+            print()
+    else:
         # Single query mode
         results, search_time, result_type = execute_search(
             args.query, args.top_k, args.chunk_results, args.max_pooling
