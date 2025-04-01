@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """
-Script to search an existing index with formatted output including document name
+Script to search an existing index with formatted output including document name from original CSV
 """
 import argparse
 import time
 import sys
 import os
 import json
+import csv
+import pandas as pd
 from pathlib import Path
 from collections import defaultdict
 
@@ -58,43 +60,41 @@ def max_pooling_results(results, top_k=5):
     return max_results[:top_k]
 
 
-def load_document_metadata(index_dir):
+def load_csv_metadata(csv_path):
     """
-    Load document metadata from the index to get the actual document names
+    Load document metadata from the original CSV file
     """
-    metadata_path = os.path.join(index_dir, "metadata.json")
     doc_metadata = {}
 
-    if os.path.exists(metadata_path):
+    if os.path.exists(csv_path):
         try:
-            with open(metadata_path, 'r') as f:
-                metadata = json.load(f)
+            # Try using pandas which handles various CSV formats better
+            df = pd.read_csv(csv_path)
 
-            # Extract unique document IDs and their names/titles if available
-            for item in metadata:
-                doc_id = item.get('doc_id', '')
-                # Extract just the document ID part if it's a chunk ID
-                if '-' in doc_id:
-                    doc_id = doc_id.split('-')[0]
-
-                # Check if we have additional metadata like 'name' field
-                if doc_id and 'metadata' in item and doc_id not in doc_metadata:
-                    # This assumes the metadata structure contains document info
-                    doc_metadata[doc_id] = item.get('metadata', {})
-
-                # Or check if there's a 'name' field directly in the item
-                elif doc_id and 'name' in item and doc_id not in doc_metadata:
-                    doc_metadata[doc_id] = {'name': item['name']}
+            # Check if required columns exist
+            if 'code' in df.columns and 'name' in df.columns:
+                # Create a dictionary with code as key and name as value
+                for _, row in df.iterrows():
+                    doc_metadata[str(row['code'])] = {
+                        'name': row['name'],
+                        # Include other columns if needed
+                        'sig_tipo': row.get('sig_tipo', ''),
+                        'txt_ementa': row.get('txt_ementa', ''),
+                        'em_tramitacao': row.get('em_tramitacao', ''),
+                        'situacao': row.get('situacao', '')
+                    }
+                print(f"Loaded metadata for {len(doc_metadata)} documents from CSV")
+            else:
+                print(f"Warning: CSV does not contain required columns. Found: {', '.join(df.columns)}")
         except Exception as e:
-            print(f"Warning: Could not load document metadata: {e}")
+            print(f"Warning: Could not load CSV metadata: {e}")
 
     return doc_metadata
 
 
-def extract_metadata(doc_id, doc_metadata=None, result=None):
+def extract_metadata(doc_id, doc_metadata=None):
     """
     Extract code and name from document ID and available metadata
-    Format assumption: INC XXXX/YYYY
     """
     try:
         clean_doc_id = doc_id
@@ -104,23 +104,13 @@ def extract_metadata(doc_id, doc_metadata=None, result=None):
 
         # Default values
         code = int(clean_doc_id)
-        name = f"INC {clean_doc_id}"
+        name = f"INC {clean_doc_id}"  # Default format if no metadata found
 
         # Try to get the actual name from document metadata if available
         if doc_metadata and clean_doc_id in doc_metadata:
             metadata_entry = doc_metadata[clean_doc_id]
             if isinstance(metadata_entry, dict) and 'name' in metadata_entry:
                 name = metadata_entry['name']
-
-        # Try to extract name from the result text as fallback
-        elif result and 'text' in result:
-            # Look for common document name patterns in the text
-            text = result['text']
-            # Look for INC or REQ or PL patterns followed by numbers
-            import re
-            name_match = re.search(r'(INC|REQ|PL|PEC)\s+\d+\/\d{4}', text)
-            if name_match:
-                name = name_match.group(0)
 
         return {'code': code, 'name': name}
     except:
@@ -139,6 +129,13 @@ def main():
         type=str,
         default="./index",
         help="Directory where the index is stored (default: ./index)"
+    )
+
+    parser.add_argument(
+        "--csv_path",
+        type=str,
+        default="./bills_dataset.csv",
+        help="Path to the original bills_dataset.csv for metadata (default: ./bills_dataset.csv)"
     )
 
     parser.add_argument(
@@ -189,8 +186,8 @@ def main():
 
     print("data loaded")
 
-    # Load document metadata from index
-    doc_metadata = load_document_metadata(args.index_dir)
+    # Load document metadata from original CSV
+    doc_metadata = load_csv_metadata(args.csv_path)
 
     # Load model and tokenizer (silently)
     model, tokenizer = load_model_and_tokenizer(args.model_path, device=args.device)
@@ -225,7 +222,7 @@ def main():
     # Display results in the requested format
     for result in results:
         doc_id = result['doc_id']
-        metadata = extract_metadata(doc_id, doc_metadata, result)
+        metadata = extract_metadata(doc_id, doc_metadata)
         score = result['score']
         print(f"* metadata=[{{'code': {metadata['code']}, 'name': '{metadata['name']}'}}], score={score}")
 
