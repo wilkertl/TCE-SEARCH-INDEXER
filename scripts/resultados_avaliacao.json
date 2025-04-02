@@ -1,0 +1,19 @@
+{
+  "mean_metric_results": {
+    "recall_100": 0.0,
+    "ndcg_cut_10": 0.0,
+    "map_cut_10": 0.0
+  },
+  "individual_response": {
+    "Peço a elaboração de projeto de lei para dificultar a extinção de conselhos de participação social, mesmo que criados por decreto. ": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "proibição de nomeação em cargos públicos de pessoas condenadas pelo crime de estupro e pela Lei Maria da Penha.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    }
+  }
+}

@@ -1,0 +1,629 @@
+{
+  "mean_metric_results": {
+    "recall_100": 0.0026881720430107525,
+    "ndcg_cut_10": 0.0037845058550222293,
+    "map_cut_10": 0.0026881720430107525
+  },
+  "individual_response": {
+    "Peço a elaboração de projeto de lei para dificultar a extinção de conselhos de participação social, mesmo que criados por decreto. ": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "proibição de nomeação em cargos públicos de pessoas condenadas pelo crime de estupro e pela Lei Maria da Penha.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaborar PEC para que os serviços notarias e de registro sejam exercidos diretamente pelo Poder público.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Permitir a concessão de liminar relativa a proventos em sede de mandado de segurança ": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Solicito uma minuta de Projeto de Lei que compatibilize o que determina o Estatuto do Idoso com a Lei sobre desconto de Imposto de Renda. O objetivo é as pessoas a partir dos 60 anos tenham desconto no imposto de renda, podendo ser uma parcela fixa dedutível ou uma tabela progressiva a partir de 60 anos de idade.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaborar projeto para que os recursos apreendidos do tráfico de drogas sejam destinados a clínica de recuperação de viciados (usuários de drogas).": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaborar projeto de lei obrigando o Banco Central a produzir as cédulas de R$ 10, R$ 20, R$ 50 e R$ 100 em linguagem Braille, com a justificativa de que são aquelas com maior circulação na população com deficiência visual do país.": {
+      "recall_100": 0.3333333333333333,
+      "ndcg_cut_10": 0.46927872602275644,
+      "map_cut_10": 0.3333333333333333
+    },
+    "Consulta sobre linhas de crédito do FINAME disponíveis às empresas no Brasil.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Proibição de qualquer tipo de propaganda comercial de bebidas com qualquer graduação alcoólica, tanto nos meios de comunicação convencional quanto na internet (redes sociais, páginas da internet, youtube, blogs e assim por diante). Os malefícios do álcool para a saúde humana são amplamente conhecidos há muitas décadas, e estudos demonstram que a porcentagem de jovens que apresentam quadro de dependência alcoólica cresceu muito nos últimos anos, no mundo inteiro. Assim como foi feito para o cigarro no passado, é necessário coibir o consumo de bebidas, por uma questão de saúde pública, e a forma mais eficaz de fazer isso é dificultando ao máximo a divulgação e vanglorização do consumo desses produtos, especialmente junto à nossa juventude.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Projeto de lei para permitir às autorizadas do serviço de TVA a adaptação de suas autorizações para outorgas do serviço de radiodifusão de sons e imagens.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Gostaríamos que fosse permitido a outras empresas além dos correios fazer o envio e recebimento de malotes. Hoje a lei confere monopólio na prestação desse serviço à ECT, mas a lei é muito antiga e hoje essa vinculação não faz mais nenhum sentido.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "projeto de lei para que conste no rótulo dos alimentos alerta sobre presença de grande quantidade de açúcar.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaborar PLP alterando as atribuições do Conselho Monetário Nacional na Lei nº 4595/64.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Solicito projeto de lei que flexibilize o licenciamento ambiental de atividades de baixo impacto.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Solicito minuta de emenda à constituição que transforme a caatinga em Patrimônio Nacional protegido.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "O parlamentar solicita projeta no sentido de prover incentivo para a expansão da energia solar em órgãos públicos, especialmente aqueles de educação e pesquisa e também em m parceria com a iniciativa privada.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "elaboração de Projeto de lei determinado a divulgação, pelo chefe do executivo federal, de detalhar os gastos com cartão corporativo.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "verificar a viabilidade de elaboração de proposta para isentar do pacote de dados da telefonia celular os aplicativos e conteúdos educativos.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Projeto de lei para garantir a ampliação do salário maternidade para seis meses.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "obrigar as empresas da internet a bloquearem conteúdos falsos - fake news - . o cidadão hoje fica muito exposto a notícias falsas e as empresas da internet e as redes sociais não fazem nada para impedir. o projeto deverá obrigar as empresas a retirarem as notícias falsas e multar em caso de reincidência. também deve ser criado um canal para o usuário da internet denunciar as notícias falsas.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Proibir propaganda de bebidas alcoólicas, independentemente do teor, em qualquer meio de radiodifusão.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "O deputado requer projeto de lei que obrigue as empresas a colocarem aviso, em todas as peças publicitárias, em qualquer mídia, informando que as imagens das pessoas/modelos foram alteradas ou retocadas (photoshopadas). Esse pedido se baseia em lei recentemente aprovada na França que vai no mesmo sentido. O objetivo é preservar a saúde mental dos cidadãos, especialmente mulheres jovens, que não raro desenvolvem quadro de depressão em função da imposição, pela sociedade, de padrões de beleza inalcançáveis, sobretudo por meio de propagandas que glorificam o corpo humano perfeito.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaboração de projeto de lei que autorize o uso temporário de equipamentos de telecomunicações já homologados pelos órgãos reguladores dos EUA, países da União Europeia ou Japão, previamente à homologação da Anatel.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Solicito a elaboração de um projeto de lei que torne as seguintes despesas dedutíveis do imposto de renda: a) curso de línguas b) processo de formação de condutores de automóveis c) transporte escolar": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaborar PL alterando o art. 57 da Lei de falências (Lei nº 11.101/2005) para dispensar a certidão de regularidade fiscal.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Que as empresas de tv por assinatura pela internet, como netflix, amazon prime etc, tenham as mesmas obrigações que as prestadoras de tv por assinatura tradicionais, nos termos da lei.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Proíbe os órgãos e entidades da administração pública federal, estadual, distrital e municipal de compartilhar dados e informações pessoais dos cidadãos com pessoas físicas e jurídicas de direito privado.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Impedir a retirada de conteúdo da internet sem ordem judicial. Muitas plataformas de internet utilizam seus termos de serviço para retirarem conteúdo de suas redes, o que é contrário à liberdade de expressão. As plataformas, em especial as redes sociais, se tornaram arenas públicas de debate.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Solicito proposição para extinguir a necessidade de fiadores, cabendo às partes a contratação de seguro específico para o contrato a ser firmado.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Solicito elaboração de proposição para suspender as pensões pagas às filhas solteiras de servidores/funcionários/empregados públicos que tenham relacionamento que configure união estável.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "exportação de commodities": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Pec para permitir que a produção de energia nuclear pela iniciativa privada. ": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Gostaria de um projeto de lei para permitir a geração de energia eólica offshore no Brasil.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Gostaria de solicitar projeto para regulamentar a doação de sangue de animais domésticos.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Solicito a elaboração de pl que alterei a lei 7565 de 1986 no sentido de permitir quer parentes de pessoas hospitalizadas em estado grave possam adquirir passagens áreas com descontos.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Estabelecer jornada de trabalho de trinta horas para a enfermagem": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Projeto de lei para poder usar cartão de crédito e de débito ou outras formas de pagamento eletrônico nos pedágios.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Solicito PL que iguale a isenção de taxa de concurso público entre homens e mulheres quando relacionada à doação de sangue.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Solicito um projeto de lei liberando a caça, em todo País, da espécie exótoca invasora de cervo Axis axis, conforme recentemente permitido no Rio Grande do Sul.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Solicito um projeto de lei regulamentando um mercado de carbono no Brasil.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaborar proposição regulamentando a licença parental": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Projeto de lei para inserir a educação financeira no currículo das escolas públicas e privadas": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaboração de proposição que condicione a matrícula em escola pública a estar com vacinação atualizada das crianças": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "PL que torne o Serviço Militar facultativo. ": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Projeto de lei para viabilizar a captação de fundos privados para universidades federais por meio de mensalidade estudantil por alunos de maior renda, com a finalidade de contribuir no financiamento de vagas para estudantes mais carentes": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Obrigar os Condominios a denunciar os crimes de violência doméstica ocorridos no interior. ": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Tornar obrigatória a instalação de portais de raios-X nas escolas pública e privadas": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "assegurar que o cidadão tenha meios de se defender de decisões tomadas por plataformas ou serviços, públicos ou privados, que se utilizem de inteligência artificial .": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "estabelecer uma legislação para incentivar a implantação da internet das coisas (internet of things) para possibilitar a oferta de novos produtos e serviços, como forma de promover o crescimento econômico": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Transformar em projeto de lei a RESOLUÇÃO MEC/CNE Nº 1, DE 30 DE MAIO DE 2012": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "permitir a renovação das outorgas da radiodifusão mediante simples notificação do interessado.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "projeto de lei para disciplinar a representação de interesses institucionais e governamentais.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "O deputado quer apresentar um projeto para limitar o preço de alimentos vendido dentro dos limites de aeroportos. A situação atual chega as rais do absurdo, o cidadao comum nao tem condições de pagar pelos preços altissimos praticados por esses estabelecimentos e acaba por passar fome durante o periodo de deslocamento. Desde ja obrigado": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Requeremos elaboração de proposição legislativa adequada com o objetivo de obrigar os sites e aplicativos de notícias a indicarem os jornalistas responsáveis por cada uma de suas publicações. O objetivo é criar algum tipo de responsabilização pelo conteúdo divulgado e, desta forma, desencorajar a publicação e proliferação de fake news.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Solicito dessa Consultoria Legislativa proposta de emenda à constituição para possibilitar a extradição de brasileiros natos.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Regulamentação dos transgêneros no esporte": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaborar projeto de lei ou proposição cabível para regulamentar o mandato coletivo.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Solicito, por gentileza,  que seja elaborado projeto de lei para regulamentar o teletrabalho.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Pedimos a elaboração de projeto de lei para reconhecer o vínculo de emprego dos trabalhadores por aplicativos (uber, ifood, rappi...).": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Solicito a elaboração de projeto de lei para regulamentar os esportes eletrônicos": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Regulamentar a locação por meio de plataformas digitais (do tipo Airbnb).": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaborar proposição cabível para proibir a nomeação em cargo ou função comissionada de pessoa condenada por violência doméstica.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaborar PL dando destinação ambientalmente adequada para os veículos abandonados em vias públicas.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Solicito PL que regulamente a remuneração para motoristas de aplicativos de transportes, como UBER, 99 e Buser": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "solicito a elaboração de projeto de lei para que os hoteis instalem barras de apoio para pessoas idosas e deficientes em seus banheiros ": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Gostaria que essa Consultoria analisasse a viabilidade da apresentação de projeto de lei com a finalidade de permitir a importação de veiculos usados": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "De ordem do deputado Fulano de Tal, solicito à douta consultoria a verificação da possibilidade de alteração da Lei n. 12715/2012, para que passe a vigorar com a seguinte redação:Art. 4° A União facultará às pessoas físicas, a partir do ano-calendário de 2012 até o ano-calendário de 2020, e às pessoas jurídicas, a partir do ano-calendário de 2013 até o ano-calendário de 2021, na qualidade de incentivadoras, a opção de deduzirem do imposto sobre a renda os valores correspondentes às doações e aos patrocínios diretamente efetuados em prol de ações e serviços de que tratam os arts. 1º a 3º, previamente aprovados pelo Ministério da Saúde e desenvolvidos pelas instituições destinatárias a que se referem os arts. 2º e 3º................................................................................................": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "O deputado solicita projeto de lei que autorize mineração em terras indígenas.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaborar projeto de lei criando uma cota nas empresas para contratação de pessoas com mais de cinquenta anos de idade": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Solicita proposição que proíba Petrobras de praticar PPI": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "A pedido do deputado, solicitamos a elaboração de proposta regulamentando a contribuição assistencial para os sindicatos": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Precisamos de um projeto para impedir sonegação sobre extração de ouro": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Proposição criando linha de crédito rural para o financiamento da aquisição de máquinas e equipamentos destinados à estruturação de sistema de irrigação, com prazo de pagamento de 8 anos, incluída carência de 2 anos.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Medida legisltativa que permita uniformização regulatória de distribuição do gás natural entre os Estados": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "A Deputada Catarina Batista solicita elaboração de PL vendando discriminação de sexo quanto a condição de empregado e pagamento de salário, sob pena de multa.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "PL para aumentar a licença paternidade para 120 dias em caso de morte da mãe.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Solicito elaboração de PL para que o Bolsa Atleta alcance atletas fora do programa olímpico e paralímpico.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Solicito a proibição de educação de gênero em escolas de primeira infância.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Propor o banimento do glifosato, agrotóxico (herbicida) muito utilizado na agricultura.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaboração de proposição que estabeleça regras aplicáveis à pré-campanha.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Projeto de lei versando sobre descarte de medicamentos vencidos.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "O deputado gostaria de solicitar um projeto para criar um programa de reciclagem de energia a partir de resíduos sólidos, utilizando para isso, usinas termelétricas.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "projeto de lei para possibilitar o compartilhamento de informações financeiras entre o Conselho de Controle de Atividades Financeiras, o Ministério Público e autoridades policiais sem autorização judicial": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Queremos informações sobre a viabilidade técnica e jurídica da privatização da PPSA, bem como suas implicações no setor": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "projeto de lei que dispõe sobre valor máximo da parcela mensal de empréstimo consignado": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "projeto de decreto legislativo para impedir que o poder executivo possa limitar a quantidade de propostas culturais da Lei Rouanet analisadas por ano.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Reconhece José de Arismar como patrono do Carnaval brasileiro.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "PEC para criar recursos obrigatórios para a área da cultura.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Ampliar a oferta de bolsas Prouni e criar nova modalidade de bolsas, com 75% do valor da mensalidade.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Regula o Banco Nacional de Itens em lei.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaboração de proposição que diminua o percentual mínimo de entrada, de 20% para 5 a 10%, para contratar financiamento imobiliário pela CAIXA.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Torna lei o programa nacional de assistência de estudantes de cursos superiores (Pnaes).": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Estabelece o Dia Nacional do Contador.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaboração de proposição que garanta desconto em restaurantes de rodízio aos comprovadamente bariátricos.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Cria o campus Gragoatá da Universidade Federal do Amazonas e desmembra os campus de Aveiro, Montes Escuros e Lindoia do Sul para criar a Universidade Federal do Triângulo Baiano.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Prestação de auxílio financeiro da União": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Normas de monitoramento e fiscalização da aplicação de recursos públicos": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Destinação de saldos financeiros no final do exercício": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaboração de proposição para alteração da composição do Tribunal Superior Eleitoral (TSE) e dos Tribunais Regionais Eleitorais (TRE)": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaboração de projeto de lei para extinguir o crime de desacato.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "3-\tReduzir a maioridade penal para menos de 18 anos.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaboração de projeto de lei para tornar hediondos os crimes contra a administração pública. ": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaboração de projeto de lei para determinar que os acusados informem a origem lícita dos recursos utilizados para o pagamento de honorários advocatícios.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaboração de projeto de lei para extinguir o regime aberto de cumprimento de pena.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaboração de PL de prevenção à violência contra a mulher baseada na mudança de comportamento dos homens. ": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaborar projeto de lei para incluir a corrupção no rol dos crimes hediondos.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Projeto de lei para revogar a saída temporária": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaboração de projeto de lei obrigue a instalação de ciclofaixas ou ciclovias em cidades com mais de 500 mil habitantes": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Projeto de Lei para regulamentar a demarcação de terras indígenas, de forma a estabelecer as condicionantes estipuladas pelo Supremo Tribunal Federal no caso Raposa/Serra do Sol. ": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Proposta de emenda à Constituição para estabelecer o marco temporal na demarcação de terras indígenas. ": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "PEC para criar a figura do primeiro-ministro ou de um ministro coordenador como parte do sistema de governo presidencialista no Brasil.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "BPC PARA CUIDADOR NÃO PROFISSIONAL": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "PRORROGAÇÃO ESTADO DE EMERGÊNCIA COVID": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "A Deputada Ana Paula de Barcellos solicita a elaboração de um Projeto de Lei que exija a participação, de forma obrigatória, de todos os candidatos à Presidência da República nos debates realizados pelas emissoras de rádio e tv.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "TECNOLOGIAS ASSISTIVAS PESSOA COM DEFICIÊNCIA": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "PENSÃO ESPECIAL PAIS E RESPONSÁVEIS PESSOA COM DEFICIÊNCIA": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "permitir a compra de terras por estrangeiros pessoas físicas ou jurídicas": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "O Deputado Elival da Silva solicita estudo para acabar com o ativismo judicial.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "O Deputado Ingo Sarlet solicita a elaboração de PEC para inserir no rol de direitos sociais o direito à busca da felicidade.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "elaboração de um projeto de lei permitindo a emissão de título de terras para as comunidades quilombolas em atendimento à constituição.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Alterações na Lei de Regularização Fundiária , Lei 11.952/19, para permitir a regularização por sensoriamento remoto, sem necessidade de visita técnica in loco, salvo se houver suspeita de irregularidade. ": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaborar Proposta de Emenda à Constituição para incluir as guardas municipais entre os órgãos de segurança pública.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaborar Proposta de Emenda Constituional ampliando a competência da Polícia Rodoviária Federal para além do exclusivo patrulhamento ostensivo das rodovias federais.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    },
+    "Elaborar Proposta de Emenda à Constituição para permitir que militares de todos os postos e graduações candidatos a cargos eletivos que não tenham sido eleitos ou reeleitos sejam reincluídos nas respectivas forças segundo do disposto em lei.": {
+      "recall_100": 0.0,
+      "ndcg_cut_10": 0.0,
+      "map_cut_10": 0.0
+    }
+  }
+}
