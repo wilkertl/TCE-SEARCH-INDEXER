@@ -153,7 +153,7 @@ def main():
         print(f"Saved model reference to {model_info_path}")
 
     # Create components
-    chunker = DocumentChunker(
+    chunker = LegislativeDocumentChunker(
         tokenizer=tokenizer,
         max_chunk_size=args.chunk_size,
         chunk_overlap=args.chunk_overlap

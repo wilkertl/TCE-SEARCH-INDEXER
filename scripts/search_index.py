@@ -210,7 +210,7 @@ def main():
     model, tokenizer = load_model_and_tokenizer(args.model_path, device=args.device)
 
     # Create components
-    chunker = DocumentChunker(tokenizer=tokenizer)
+    chunker = LegislativeDocumentChunker(tokenizer=tokenizer)
     embedder = DocumentEmbedder(
         model=model,
         tokenizer=tokenizer,
