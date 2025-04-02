@@ -8,7 +8,7 @@ import numpy as np
 from typing import List, Dict, Any, Set, Optional, Tuple
 from tqdm import tqdm
 
-from .chunker import DocumentChunker
+from .chunker import LegislativeDocumentChunker
 from .embedder import DocumentEmbedder
 
 
@@ -186,7 +186,7 @@ class LegalDocumentIndexer:
 
     def __init__(
             self,
-            chunker: DocumentChunker,
+            chunker: LegislativeDocumentChunker,
             embedder: DocumentEmbedder,
             index: Optional[DocumentIndex] = None,
             embedding_dim: int = 1024,
@@ -310,7 +310,7 @@ class LegalDocumentIndexer:
     def load(
             cls,
             directory: str,
-            chunker: DocumentChunker,
+            chunker: LegislativeDocumentChunker,
             embedder: DocumentEmbedder
     ) -> "LegalDocumentIndexer":
         """
