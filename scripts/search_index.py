@@ -40,7 +40,7 @@ def get_model_from_reference(index_dir):
     return None
 
 
-def improved_max_pooling_results(results, top_k=20):
+def max_pooling_results(results, top_k=20):
     """
     Improved max pooling that considers multiple chunks per document
     and also applies a minimum score threshold
