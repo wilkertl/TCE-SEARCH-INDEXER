@@ -40,24 +40,35 @@ def get_model_from_reference(index_dir):
     return None
 
 
-def max_pooling_results(results, top_k=5):
+def improved_max_pooling_results(results, top_k=20):
     """
-    Perform max pooling on search results to return the highest score for each document
+    Improved max pooling that considers multiple chunks per document
+    and also applies a minimum score threshold
     """
     # Group results by document ID
     doc_results = defaultdict(list)
     for result in results:
-        doc_results[result['doc_id']].append(result)
+        doc_results[result['doc_id'].split('-')[0]].append(result)
 
-    # For each document, keep only the chunk with the highest score
-    max_results = []
+    # For each document, calculate a combined score
+    combined_results = []
     for doc_id, chunks in doc_results.items():
-        max_chunk = max(chunks, key=lambda x: x['score'])
-        max_results.append(max_chunk)
+        # Sort chunks by score in descending order
+        sorted_chunks = sorted(chunks, key=lambda x: x['score'], reverse=True)
+        # Use the highest score, but also consider other high-scoring chunks
+        main_score = sorted_chunks[0]['score']
+        # Add a bonus for documents with multiple high-scoring chunks
+        bonus = sum(chunk['score'] for chunk in sorted_chunks[1:3]) * 0.1 if len(sorted_chunks) > 1 else 0
 
-    # Sort by score and take top_k
-    max_results.sort(key=lambda x: x['score'], reverse=True)
-    return max_results[:top_k]
+        combined_results.append({
+            'doc_id': doc_id,
+            'score': main_score + bonus,
+            'top_chunk': sorted_chunks[0]['text'] if 'text' in sorted_chunks[0] else ""
+        })
+
+    # Sort by combined score and take top_k
+    combined_results.sort(key=lambda x: x['score'], reverse=True)
+    return combined_results[:top_k]
 
 
 def load_csv_metadata(csv_path):
@@ -102,21 +113,27 @@ def extract_metadata(doc_id, doc_metadata=None):
             # If it's a chunk ID, get just the document part
             clean_doc_id = doc_id.split('-')[0]
 
-        # Default values
-        code = int(clean_doc_id)
-        name = f"INC {clean_doc_id}"  # Default format if no metadata found
-
-        # Try to get the actual name from document metadata if available
+        # Try to get the actual metadata from document metadata if available
         if doc_metadata and clean_doc_id in doc_metadata:
             metadata_entry = doc_metadata[clean_doc_id]
-            if isinstance(metadata_entry, dict) and 'name' in metadata_entry:
-                name = metadata_entry['name']
+            if isinstance(metadata_entry, dict):
+                return {
+                    'code': int(clean_doc_id),
+                    'name': metadata_entry.get('name', f"INC {clean_doc_id}"),
+                    'sig_tipo': metadata_entry.get('sig_tipo', ''),
+                    'em_tramitacao': metadata_entry.get('em_tramitacao', ''),
+                    'situacao': metadata_entry.get('situacao', '')
+                }
 
-        return {'code': code, 'name': name}
-    except:
+        # Default values if no metadata found
+        return {
+            'code': int(clean_doc_id) if clean_doc_id.isdigit() else clean_doc_id,
+            'name': f"INC {clean_doc_id}"
+        }
+    except Exception as e:
+        print(f"Warning: Error extracting metadata for {doc_id}: {e}")
         # Fallback if we can't parse the document ID
-        return {'code': doc_id, 'name': doc_id}
-
+        return {'code': doc_id, 'name': f"Document {doc_id}"}
 
 def main():
     # Define your default query here - replace with your actual query
