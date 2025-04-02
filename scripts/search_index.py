@@ -15,7 +15,7 @@ from collections import defaultdict
 # Add parent directory to path so we can import the legal_indexer package
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from legal_indexer.chunker import DocumentChunker
+from legal_indexer.chunker import LegislativeDocumentChunker
 from legal_indexer.embedder import DocumentEmbedder
 from legal_indexer.indexer import LegalDocumentIndexer
 from legal_indexer.utils import load_model_and_tokenizer
