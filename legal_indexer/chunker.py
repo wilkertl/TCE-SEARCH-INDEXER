@@ -3,7 +3,7 @@ from typing import List, Dict, Any, Optional, Tuple
 import unicodedata
 
 
-class SimpleDocumentChunker:
+class LegislativeDocumentChunker:
     """Simple chunker for legislative documents using natural boundaries"""
 
     def __init__(
@@ -126,7 +126,11 @@ class SimpleDocumentChunker:
                 "doc_id": doc_id,
                 "chunk_id": f"{doc_id}-0",
                 "text": clean_doc,
-                "metadata": metadata
+                "metadata": metadata,
+                "position": 0,
+                "total_chunks": 1,
+                "start_pos": 0,
+                "end_pos": len(clean_doc)
             }
             return [chunk]
 
@@ -162,6 +166,7 @@ class SimpleDocumentChunker:
                     "chunk_id": f"{doc_id}-{chunk_id}",
                     "text": chunk_text,
                     "metadata": metadata,
+                    "position": chunk_id,
                     "start_pos": start_pos,
                     "end_pos": end_pos
                 }
@@ -182,5 +187,10 @@ class SimpleDocumentChunker:
                 chunks[-2]["text"] += " " + chunks[-1]["text"]
                 chunks[-2]["end_pos"] = chunks[-1]["end_pos"]
                 chunks.pop()
+
+        # Add total_chunks information to all chunks
+        total_chunks = len(chunks)
+        for chunk in chunks:
+            chunk["total_chunks"] = total_chunks
 
         return chunks

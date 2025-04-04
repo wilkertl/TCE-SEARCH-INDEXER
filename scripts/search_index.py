@@ -42,8 +42,8 @@ def get_model_from_reference(index_dir):
 
 def max_pooling_results(results, top_k=20):
     """
-    Improved max pooling that considers multiple chunks per document
-    and also applies a minimum score threshold
+    Improved max pooling that uses weighted scoring and better handles multiple chunks.
+    Considers both the score and position of chunks within documents.
     """
     # Group results by document ID
     doc_results = defaultdict(list)
@@ -55,15 +55,39 @@ def max_pooling_results(results, top_k=20):
     for doc_id, chunks in doc_results.items():
         # Sort chunks by score in descending order
         sorted_chunks = sorted(chunks, key=lambda x: x['score'], reverse=True)
-        # Use the highest score, but also consider other high-scoring chunks
-        main_score = sorted_chunks[0]['score']
-        # Add a bonus for documents with multiple high-scoring chunks
-        bonus = sum(chunk['score'] for chunk in sorted_chunks[1:3]) * 0.1 if len(sorted_chunks) > 1 else 0
+        
+        # Use weighted average of top chunks
+        weights = [1.0, 0.8, 0.6, 0.4, 0.2]  # Decreasing weights for top 5 chunks
+        weighted_scores = []
+        
+        # Calculate weighted scores for top chunks
+        for i, chunk in enumerate(sorted_chunks[:5]):
+            weight = weights[i] if i < len(weights) else 0.1
+            weighted_scores.append(chunk['score'] * weight)
+        
+        # Calculate main score as weighted average
+        main_score = sum(weighted_scores) / sum(weights[:len(weighted_scores)])
+        
+        # Add bonus for having multiple high-scoring chunks
+        high_scoring_chunks = sum(1 for score in weighted_scores if score > 0.7)
+        bonus = 0.2 * high_scoring_chunks  # 0.2 bonus per high-scoring chunk
+        
+        # Add position-based bonus for chunks that are close together
+        position_bonus = 0
+        if len(sorted_chunks) > 1:
+            positions = [chunk['position'] for chunk in sorted_chunks[:3]]
+            position_diffs = [abs(positions[i] - positions[i+1]) for i in range(len(positions)-1)]
+            if position_diffs:
+                avg_position_diff = sum(position_diffs) / len(position_diffs)
+                if avg_position_diff <= 2:  # Chunks are close together
+                    position_bonus = 0.3
 
         combined_results.append({
             'doc_id': doc_id,
-            'score': main_score + bonus,
-            'top_chunk': sorted_chunks[0]['text'] if 'text' in sorted_chunks[0] else ""
+            'score': main_score + bonus + position_bonus,
+            'top_chunk': sorted_chunks[0]['text'] if 'text' in sorted_chunks[0] else "",
+            'num_chunks': len(sorted_chunks),
+            'high_scoring_chunks': high_scoring_chunks
         })
 
     # Sort by combined score and take top_k
@@ -139,6 +163,7 @@ def main():
     # Define your default query here - replace with your actual query
     DEFAULT_QUERY = "Elaborar PLP alterando as atribuições do Conselho Monetário Nacional na Lei nº 4595/64."
 
+
     parser = argparse.ArgumentParser(description="Search a document index")
 
     parser.add_argument(
@@ -174,6 +199,19 @@ def main():
         type=int,
         default=20,
         help="Number of chunk results to use for max pooling (default: 20)"
+    )
+    
+    parser.add_argument(
+        "--use_hybrid",
+        action="store_true",
+        help="Use hybrid search approach (first-pass + chunk refinement)"
+    )
+    
+    parser.add_argument(
+        "--first_pass_threshold",
+        type=float,
+        default=0.7,
+        help="Score threshold for documents to be considered for refinement in hybrid search (default: 0.7)"
     )
 
     parser.add_argument(
@@ -230,11 +268,19 @@ def main():
     # Execute search and measure time
     start_time = time.time()
 
-    # Get chunk results
-    all_results = indexer.search(args.query, k=args.chunk_results)
-
-    # Apply max pooling to get document results
-    results = max_pooling_results(all_results, top_k=args.top_k)
+    # Choose search method based on arguments
+    if args.use_hybrid:
+        print("Using hybrid search approach")
+        results = indexer.hybrid_search(
+            args.query, 
+            k=args.top_k,
+            first_pass_threshold=args.first_pass_threshold
+        )
+    else:
+        # Get chunk results
+        all_results = indexer.search(args.query, k=args.chunk_results)
+        # Apply max pooling to get document results
+        results = max_pooling_results(all_results, top_k=args.top_k)
 
     # Display results in the requested format
     for result in results:
